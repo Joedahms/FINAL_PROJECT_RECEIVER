@@ -1,0 +1,223 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4331 ]
+[d frameptr 4065 ]
+"7 /opt/microchip/xc8/v2.45/pic/sources/c99/common/awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"4 /opt/microchip/xc8/v2.45/pic/sources/c99/common/fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 /opt/microchip/xc8/v2.45/pic/sources/c99/common/float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 /opt/microchip/xc8/v2.45/pic/sources/c99/common/ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 /opt/microchip/xc8/v2.45/pic/sources/c99/common/ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 /opt/microchip/xc8/v2.45/pic/sources/c99/common/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 /opt/microchip/xc8/v2.45/pic/sources/c99/common/ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 /opt/microchip/xc8/v2.45/pic/sources/c99/common/sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 /opt/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 /opt/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 /opt/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"15 /opt/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 /opt/microchip/xc8/v2.45/pic/sources/c99/common/Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"5 pc_pwm.c
+[v _PWM_init PWM_init `(v  1 e 1 0 ]
+"102 /home/joe/MPLABXProjects/FINAL_PROJECT.X/receiver_main.c
+[v _main main `(i  1 e 2 0 ]
+"141
+[v _h_isr h_isr `IIH(v  1 e 1 0 ]
+"188
+[v _set_throttle set_throttle `(i  1 e 2 0 ]
+"226
+[v _message_received message_received `(v  1 e 1 0 ]
+"25 spi.c
+[v _spi_slave_init spi_slave_init `(v  1 e 1 0 ]
+"7 xl5.c
+[v _init_XL5 init_XL5 `(v  1 e 1 0 ]
+"892 /home/joe/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8/pic/include/proc/pic18f4331.h
+[v _PDC0L PDC0L `VEuc  1 e 1 @3961 ]
+"899
+[v _PTPERH PTPERH `VEuc  1 e 1 @3962 ]
+"906
+[v _PTPERL PTPERL `VEuc  1 e 1 @3963 ]
+[s S103 . 1 `uc 1 LATB0 1 0 :1:0 
+`uc 1 LATB1 1 0 :1:1 
+`uc 1 LATB2 1 0 :1:2 
+`uc 1 LATB3 1 0 :1:3 
+`uc 1 LATB4 1 0 :1:4 
+`uc 1 LATB5 1 0 :1:5 
+`uc 1 LATB6 1 0 :1:6 
+`uc 1 LATB7 1 0 :1:7 
+]
+"1891
+[s S112 . 1 `uc 1 LB0 1 0 :1:0 
+`uc 1 LB1 1 0 :1:1 
+`uc 1 LB2 1 0 :1:2 
+`uc 1 LB3 1 0 :1:3 
+`uc 1 LB4 1 0 :1:4 
+`uc 1 LB5 1 0 :1:5 
+`uc 1 LB6 1 0 :1:6 
+`uc 1 LB7 1 0 :1:7 
+]
+[u S121 . 1 `S103 1 . 1 0 `S112 1 . 1 0 ]
+[v _LATBbits LATBbits `VES121  1 e 1 @3978 ]
+"6112
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @4041 ]
+"7907
+[v _CKE CKE `VEb  1 e 0 @32318 ]
+"7910
+[v _CKP CKP `VEb  1 e 0 @32308 ]
+"8126
+[v _GIE GIE `VEb  1 e 0 @32663 ]
+"8252
+[v _IPEN IPEN `VEb  1 e 0 @32391 ]
+"8255
+[v _IRCF0 IRCF0 `VEb  1 e 0 @32412 ]
+"8258
+[v _IRCF1 IRCF1 `VEb  1 e 0 @32413 ]
+"8261
+[v _IRCF2 IRCF2 `VEb  1 e 0 @32414 ]
+"8633
+[v _PEIE PEIE `VEb  1 e 0 @32662 ]
+"8639
+[v _PMOD0 PMOD0 `VEb  1 e 0 @31608 ]
+"8705
+[v _PTCKPS0 PTCKPS0 `VEb  1 e 0 @31738 ]
+"8708
+[v _PTCKPS1 PTCKPS1 `VEb  1 e 0 @31739 ]
+"8714
+[v _PTEN PTEN `VEb  1 e 0 @31735 ]
+"8744
+[v _PWMEN0 PWMEN0 `VEb  1 e 0 @31612 ]
+"8747
+[v _PWMEN1 PWMEN1 `VEb  1 e 0 @31613 ]
+"8750
+[v _PWMEN2 PWMEN2 `VEb  1 e 0 @31614 ]
+"9050
+[v _SMP SMP `VEb  1 e 0 @32319 ]
+"9074
+[v _SSPEN SSPEN `VEb  1 e 0 @32309 ]
+"9077
+[v _SSPIE SSPIE `VEb  1 e 0 @31979 ]
+"9080
+[v _SSPIF SSPIF `VEb  1 e 0 @31987 ]
+"9086
+[v _SSPM0 SSPM0 `VEb  1 e 0 @32304 ]
+"9089
+[v _SSPM1 SSPM1 `VEb  1 e 0 @32305 ]
+"9092
+[v _SSPM2 SSPM2 `VEb  1 e 0 @32306 ]
+"9095
+[v _SSPM3 SSPM3 `VEb  1 e 0 @32307 ]
+"9356
+[v _TRISB0 TRISB0 `VEb  1 e 0 @31896 ]
+"9392
+[v _TRISC4 TRISC4 `VEb  1 e 0 @31908 ]
+"9395
+[v _TRISC5 TRISC5 `VEb  1 e 0 @31909 ]
+"9401
+[v _TRISC7 TRISC7 `VEb  1 e 0 @31911 ]
+"87 /home/joe/MPLABXProjects/FINAL_PROJECT.X/receiver_main.c
+[v _adc_res_hi adc_res_hi `uc  1 e 1 0 ]
+"88
+[v _adc_res_lo adc_res_lo `uc  1 e 1 0 ]
+"89
+[v _drive_dir drive_dir `uc  1 e 1 0 ]
+"94
+[v _adc_lob_flag adc_lob_flag `uc  1 e 1 0 ]
+"95
+[v _adc_hib_flag adc_hib_flag `uc  1 e 1 0 ]
+"96
+[v _drive_dirb_flag drive_dirb_flag `uc  1 e 1 0 ]
+"97
+[v _message_start_flag message_start_flag `uc  1 e 1 0 ]
+"99
+[v _adc_data_received adc_data_received `uc  1 e 1 0 ]
+"100
+[v _drive_dir_received drive_dir_received `uc  1 e 1 0 ]
+"102
+[v _main main `(i  1 e 2 0 ]
+{
+"121
+[v main@adc_result adc_result `i  1 a 2 30 ]
+"119
+[v main@forward_flag forward_flag `uc  1 a 1 32 ]
+"138
+} 0
+"25 spi.c
+[v _spi_slave_init spi_slave_init `(v  1 e 1 0 ]
+{
+"42
+} 0
+"188 /home/joe/MPLABXProjects/FINAL_PROJECT.X/receiver_main.c
+[v _set_throttle set_throttle `(i  1 e 2 0 ]
+{
+"190
+[v set_throttle@i i `i  1 a 2 21 ]
+"191
+[v set_throttle@step_size step_size `i  1 a 2 17 ]
+"195
+[v set_throttle@curr_step curr_step `i  1 a 2 15 ]
+"192
+[v set_throttle@dir_div dir_div `uc  1 a 1 20 ]
+"194
+[v set_throttle@neutral neutral `uc  1 a 1 19 ]
+"188
+[v set_throttle@forward_flag forward_flag `i  1 p 2 8 ]
+[v set_throttle@adc_result adc_result `i  1 p 2 10 ]
+"223
+} 0
+"15 /opt/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"7 /opt/microchip/xc8/v2.45/pic/sources/c99/common/awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v ___awdiv@quotient quotient `i  1 a 2 6 ]
+"11
+[v ___awdiv@sign sign `uc  1 a 1 5 ]
+[v ___awdiv@counter counter `uc  1 a 1 4 ]
+"7
+[v ___awdiv@dividend dividend `i  1 p 2 0 ]
+[v ___awdiv@divisor divisor `i  1 p 2 2 ]
+"41
+} 0
+"7 xl5.c
+[v _init_XL5 init_XL5 `(v  1 e 1 0 ]
+{
+"15
+} 0
+"5 pc_pwm.c
+[v _PWM_init PWM_init `(v  1 e 1 0 ]
+{
+"25
+} 0
+"141 /home/joe/MPLABXProjects/FINAL_PROJECT.X/receiver_main.c
+[v _h_isr h_isr `IIH(v  1 e 1 0 ]
+{
+"186
+} 0
+"226
+[v _message_received message_received `(v  1 e 1 0 ]
+{
+"232
+} 0
