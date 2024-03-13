@@ -1,4 +1,16 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"14 ./../PIC18_adc.X/adc.h
+[; ;./../PIC18_adc.X/adc.h: 14: {
+[s S318 `i 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S318 adc_data full_result res_hi res_lo full_result_flag lob_flag hib_flag ]
+"12 ./../PIC18_xl5.X/xl5.h
+[; ;./../PIC18_xl5.X/xl5.h: 12: {
+[s S316 `uc 1 `uc 1 ]
+[n S316 xl5_data drive_dir drive_dir_flag ]
+"17 ./../PIC18_spi.X/spi.h
+[; ;./../PIC18_spi.X/spi.h: 17: {
+[s S317 `uc 1 `uc 1 `uc 1 ]
+[n S317 spi_transmission beginning_flag sending_flag end_flag ]
 [p mainexit ]
 "8255 /home/joe/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8/pic/include/proc/pic18f4331.h
 [; ;/home/joe/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8/pic/include/proc/pic18f4331.h: 8255: extern volatile __bit IRCF0 __attribute__((address(0x7E9C)));
@@ -21,23 +33,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9077
 [; ;/home/joe/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8/pic/include/proc/pic18f4331.h: 9077: extern volatile __bit SSPIE __attribute__((address(0x7CEB)));
 [v _SSPIE `Vb ~T0 @X0 0 e@31979 ]
-"11 ./../PIC18_xl5.X/xl5.h
-[; ;./../PIC18_xl5.X/xl5.h: 11: void init_XL5();
+"17 ./../PIC18_xl5.X/xl5.h
+[; ;./../PIC18_xl5.X/xl5.h: 17: void init_XL5();
 [v _init_XL5 `(v ~T0 @X0 0 e? ]
 "11 ./../PIC18_pc_pwm.X/pc_pwm.h
 [; ;./../PIC18_pc_pwm.X/pc_pwm.h: 11: void PWM_init();
 [v _PWM_init `(v ~T0 @X0 0 e? ]
-"12 ./../PIC18_spi.X/spi.h
-[; ;./../PIC18_spi.X/spi.h: 12: void spi_slave_init();
+"14 ./../PIC18_spi.X/spi.h
+[; ;./../PIC18_spi.X/spi.h: 14: void spi_slave_init();
 [v _spi_slave_init `(v ~T0 @X0 0 e? ]
 "892 /home/joe/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8/pic/include/proc/pic18f4331.h
 [; ;/home/joe/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8/pic/include/proc/pic18f4331.h: 892: extern volatile unsigned char PDC0L __attribute__((address(0xF79)));
 [v _PDC0L `Vuc ~T0 @X0 0 e@3961 ]
-"82 receiver_main.c
-[; ;receiver_main.c: 82: int set_throttle(int, int);
+"85 receiver_main.c
+[; ;receiver_main.c: 85: int set_throttle(int, int);
 [v _set_throttle `(i ~T0 @X0 0 ef2`i`i ]
-"83
-[; ;receiver_main.c: 83: void message_received();
+"86
+[; ;receiver_main.c: 86: void message_received();
 [v _message_received `(v ~T0 @X0 0 e? ]
 [t ~ __interrupt . k ]
 [t T37 __interrupt high_priority ]
@@ -47,67 +59,67 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6112
 [; ;/home/joe/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8/pic/include/proc/pic18f4331.h: 6112: extern volatile unsigned char SSPBUF __attribute__((address(0xFC9)));
 [v _SSPBUF `Vuc ~T0 @X0 0 e@4041 ]
-"13 receiver_main.c
+"15 receiver_main.c
 [p x OSC  =  IRC         ]
-"14
+"16
 [p x FCMEN  =  ON        ]
-"15
+"17
 [p x IESO  =  ON         ]
-"18
+"20
 [p x PWRTEN  =  ON       ]
-"19
+"21
 [p x BOREN  =  ON        ]
-"23
-[p x WDTEN  =  OFF       ]
-"24
-[p x WDPS  =  32768      ]
 "25
+[p x WDTEN  =  OFF       ]
+"26
+[p x WDPS  =  32768      ]
+"27
 [p x WINEN  =  OFF       ]
-"28
-[p x PWMPIN  =  OFF      ]
-"29
-[p x LPOL  =  HIGH       ]
 "30
-[p x HPOL  =  HIGH       ]
+[p x PWMPIN  =  OFF      ]
 "31
+[p x LPOL  =  HIGH       ]
+"32
+[p x HPOL  =  HIGH       ]
+"33
 [p x T1OSCMX  =  ON      ]
-"34
-[p x FLTAMX  =  RC1      ]
-"35
-[p x SSPMX  =  RC7       ]
 "36
-[p x PWM4MX  =  RB5      ]
+[p x FLTAMX  =  RC1      ]
 "37
-[p x EXCLKMX  =  RC3     ]
+[p x SSPMX  =  RC7       ]
 "38
+[p x PWM4MX  =  RB5      ]
+"39
+[p x EXCLKMX  =  RC3     ]
+"40
 [p x MCLRE  =  ON        ]
-"41
+"43
 [p x STVREN  =  ON       ]
-"42
+"44
 [p x LVP  =  OFF         ]
-"45
+"47
 [p x CP0  =  OFF         ]
-"46
+"48
 [p x CP1  =  OFF         ]
-"49
+"51
 [p x CPB  =  OFF         ]
-"50
+"52
 [p x CPD  =  OFF         ]
-"53
+"55
 [p x WRT0  =  OFF        ]
-"54
+"56
 [p x WRT1  =  OFF        ]
-"57
-[p x WRTC  =  OFF        ]
-"58
-[p x WRTB  =  OFF        ]
 "59
+[p x WRTC  =  OFF        ]
+"60
+[p x WRTB  =  OFF        ]
+"61
 [p x WRTD  =  OFF        ]
-"62
+"64
 [p x EBTR0  =  OFF       ]
-"63
+"65
 [p x EBTR1  =  OFF       ]
-"66
+"68
 [p x EBTRB  =  OFF       ]
 "54 /home/joe/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8/pic/include/proc/pic18f4331.h
 [; ;/home/joe/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8/pic/include/proc/pic18f4331.h: 54: __asm("DFLTCON equ 0F60h");
@@ -649,499 +661,428 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7616
 [; ;/home/joe/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8/pic/include/proc/pic18f4331.h: 7616: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"85 receiver_main.c
-[; ;receiver_main.c: 85: int byte_received = 0;
-[v _byte_received `i ~T0 @X0 1 e ]
-[i _byte_received
--> 0 `i
-]
-"87
-[; ;receiver_main.c: 87: uint8_t adc_res_hi = 0;
-[v _adc_res_hi `uc ~T0 @X0 1 e ]
-[i _adc_res_hi
--> -> 0 `i `uc
-]
-"88
-[; ;receiver_main.c: 88: uint8_t adc_res_lo = 0;
-[v _adc_res_lo `uc ~T0 @X0 1 e ]
-[i _adc_res_lo
--> -> 0 `i `uc
-]
+"88 receiver_main.c
+[; ;receiver_main.c: 88: struct adc_data throttle;
+[v _throttle `S318 ~T0 @X0 1 e ]
 "89
-[; ;receiver_main.c: 89: uint8_t drive_dir = 0;
-[v _drive_dir `uc ~T0 @X0 1 e ]
-[i _drive_dir
--> -> 0 `i `uc
-]
-"91
-[; ;receiver_main.c: 91: uint8_t message_start = 0b11111111;
-[v _message_start `uc ~T0 @X0 1 e ]
-[i _message_start
--> -> 255 `i `uc
-]
-"92
-[; ;receiver_main.c: 92: uint8_t start_test = 0;
-[v _start_test `uc ~T0 @X0 1 e ]
-[i _start_test
--> -> 0 `i `uc
-]
-"94
-[; ;receiver_main.c: 94: uint8_t adc_lob_flag = 0;
-[v _adc_lob_flag `uc ~T0 @X0 1 e ]
-[i _adc_lob_flag
--> -> 0 `i `uc
-]
-"95
-[; ;receiver_main.c: 95: uint8_t adc_hib_flag = 0;
-[v _adc_hib_flag `uc ~T0 @X0 1 e ]
-[i _adc_hib_flag
--> -> 0 `i `uc
-]
-"96
-[; ;receiver_main.c: 96: uint8_t drive_dirb_flag = 0;
-[v _drive_dirb_flag `uc ~T0 @X0 1 e ]
-[i _drive_dirb_flag
--> -> 0 `i `uc
-]
-"97
-[; ;receiver_main.c: 97: uint8_t message_start_flag = 0;
-[v _message_start_flag `uc ~T0 @X0 1 e ]
-[i _message_start_flag
--> -> 0 `i `uc
-]
-"98
-[; ;receiver_main.c: 98: uint8_t message_received_flag = 0;
-[v _message_received_flag `uc ~T0 @X0 1 e ]
-[i _message_received_flag
--> -> 0 `i `uc
-]
-"100
-[; ;receiver_main.c: 100: uint8_t adc_data_received = 0;
-[v _adc_data_received `uc ~T0 @X0 1 e ]
-[i _adc_data_received
--> -> 0 `i `uc
-]
-"101
-[; ;receiver_main.c: 101: uint8_t drive_dir_received = 0;
-[v _drive_dir_received `uc ~T0 @X0 1 e ]
-[i _drive_dir_received
--> -> 0 `i `uc
-]
+[; ;receiver_main.c: 89: struct xl5_data xl5_1;
+[v _xl5_1 `S316 ~T0 @X0 1 e ]
+"90
+[; ;receiver_main.c: 90: struct spi_transmission message;
+[v _message `S317 ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"103
-[; ;receiver_main.c: 103: int main( int argc, char** argv ) {
+"94
+[; ;receiver_main.c: 94: int main( int argc, char** argv ) {
 [v _main `(i ~T0 @X0 1 ef2`i`**uc ]
 {
 [e :U _main ]
 [v _argc `i ~T0 @X0 1 r1 ]
 [v _argv `**uc ~T0 @X0 1 r2 ]
 [f ]
-"106
-[; ;receiver_main.c: 106:     IRCF0 = 0;
+"95
+[; ;receiver_main.c: 95:     message.beginning_flag = 0;
+[e = . _message 0 -> -> 0 `i `uc ]
+"96
+[; ;receiver_main.c: 96:     message.end_flag = 0;
+[e = . _message 2 -> -> 0 `i `uc ]
+"99
+[; ;receiver_main.c: 99:     IRCF0 = 0;
 [e = _IRCF0 -> -> 0 `i `b ]
-"107
-[; ;receiver_main.c: 107:     IRCF1 = 1;
+"100
+[; ;receiver_main.c: 100:     IRCF1 = 1;
 [e = _IRCF1 -> -> 1 `i `b ]
-"108
-[; ;receiver_main.c: 108:     IRCF2 = 1;
+"101
+[; ;receiver_main.c: 101:     IRCF2 = 1;
 [e = _IRCF2 -> -> 1 `i `b ]
-"111
-[; ;receiver_main.c: 111:     IPEN = 1;
+"104
+[; ;receiver_main.c: 104:     IPEN = 1;
 [e = _IPEN -> -> 1 `i `b ]
-"112
-[; ;receiver_main.c: 112:     GIE = 1;
+"105
+[; ;receiver_main.c: 105:     GIE = 1;
 [e = _GIE -> -> 1 `i `b ]
-"113
-[; ;receiver_main.c: 113:     PEIE = 1;
+"106
+[; ;receiver_main.c: 106:     PEIE = 1;
 [e = _PEIE -> -> 1 `i `b ]
-"114
-[; ;receiver_main.c: 114:     SSPIE = 1;
+"107
+[; ;receiver_main.c: 107:     SSPIE = 1;
 [e = _SSPIE -> -> 1 `i `b ]
-"116
-[; ;receiver_main.c: 116:     init_XL5();
+"109
+[; ;receiver_main.c: 109:     init_XL5();
 [e ( _init_XL5 ..  ]
-"117
-[; ;receiver_main.c: 117:     PWM_init();
+"110
+[; ;receiver_main.c: 110:     PWM_init();
 [e ( _PWM_init ..  ]
-"118
-[; ;receiver_main.c: 118:     spi_slave_init();
+"111
+[; ;receiver_main.c: 111:     spi_slave_init();
 [e ( _spi_slave_init ..  ]
+"113
+[; ;receiver_main.c: 113:     xl5_1.drive_dir = 1;
+[e = . _xl5_1 0 -> -> 1 `i `uc ]
+"115
+[; ;receiver_main.c: 115:     while( 1 )
+[e :U 321 ]
+"116
+[; ;receiver_main.c: 116:     {
+{
+"117
+[; ;receiver_main.c: 117:         if ( throttle.full_result_flag )
+[e $ ! != -> . _throttle 3 `i -> 0 `i 323  ]
+"118
+[; ;receiver_main.c: 118:         {
+{
+"119
+[; ;receiver_main.c: 119:             throttle.full_result_flag = 0;
+[e = . _throttle 3 -> -> 0 `i `uc ]
 "120
-[; ;receiver_main.c: 120:     uint8_t forward_flag = 0;
-[v _forward_flag `uc ~T0 @X0 1 a ]
-[e = _forward_flag -> -> 0 `i `uc ]
+[; ;receiver_main.c: 120:             throttle.full_result = ( throttle.res_hi << 8 ) + throttle.res_lo;
+[e = . _throttle 0 + << -> . _throttle 1 `i -> 8 `i -> . _throttle 2 `i ]
+"121
+[; ;receiver_main.c: 121:             PDC0L = set_throttle( xl5_1.drive_dir, throttle.full_result );
+[e = _PDC0L -> ( _set_throttle (2 , -> . _xl5_1 0 `i . _throttle 0 `uc ]
 "122
-[; ;receiver_main.c: 122:     int adc_result = 0;
-[v _adc_result `i ~T0 @X0 1 a ]
-[e = _adc_result -> 0 `i ]
+[; ;receiver_main.c: 122:         }
+}
+[e :U 323 ]
+"123
+[; ;receiver_main.c: 123:         if ( xl5_1.drive_dir_flag )
+[e $ ! != -> . _xl5_1 1 `i -> 0 `i 324  ]
 "124
-[; ;receiver_main.c: 124:     while( 1 )
-[e :U 318 ]
+[; ;receiver_main.c: 124:         {
+{
 "125
-[; ;receiver_main.c: 125:     {
-{
+[; ;receiver_main.c: 125:             xl5_1.drive_dir_flag = 0;
+[e = . _xl5_1 1 -> -> 0 `i `uc ]
 "126
-[; ;receiver_main.c: 126:         if ( adc_data_received )
-[e $ ! != -> _adc_data_received `i -> 0 `i 320  ]
+[; ;receiver_main.c: 126:         }
+}
+[e :U 324 ]
 "127
-[; ;receiver_main.c: 127:         {
-{
+[; ;receiver_main.c: 127:         if ( message.end_flag )
+[e $ ! != -> . _message 2 `i -> 0 `i 325  ]
 "128
-[; ;receiver_main.c: 128:             adc_result = ( adc_res_hi << 8 ) + adc_res_lo;
-[e = _adc_result + << -> _adc_res_hi `i -> 8 `i -> _adc_res_lo `i ]
+[; ;receiver_main.c: 128:         {
+{
 "129
-[; ;receiver_main.c: 129:             PDC0L = set_throttle(forward_flag, adc_result);
-[e = _PDC0L -> ( _set_throttle (2 , -> _forward_flag `i _adc_result `uc ]
+[; ;receiver_main.c: 129:             message.end_flag = 0;
+[e = . _message 2 -> -> 0 `i `uc ]
 "130
-[; ;receiver_main.c: 130:             adc_data_received = 0;
-[e = _adc_data_received -> -> 0 `i `uc ]
+[; ;receiver_main.c: 130:             message_received();
+[e ( _message_received ..  ]
 "131
 [; ;receiver_main.c: 131:         }
 }
-[e :U 320 ]
+[e :U 325 ]
 "132
-[; ;receiver_main.c: 132:         if ( drive_dir_received )
-[e $ ! != -> _drive_dir_received `i -> 0 `i 321  ]
-"133
-[; ;receiver_main.c: 133:         {
-{
-"134
-[; ;receiver_main.c: 134:             forward_flag = drive_dir;
-[e = _forward_flag _drive_dir ]
-"135
-[; ;receiver_main.c: 135:             drive_dir_received = 0;
-[e = _drive_dir_received -> -> 0 `i `uc ]
-"136
-[; ;receiver_main.c: 136:         }
+[; ;receiver_main.c: 132:     }
 }
-[e :U 321 ]
-"137
-[; ;receiver_main.c: 137:         if ( message_received_flag )
-[e $ ! != -> _message_received_flag `i -> 0 `i 322  ]
-"138
-[; ;receiver_main.c: 138:         {
-{
-"139
-[; ;receiver_main.c: 139:             message_received_flag = 0;
-[e = _message_received_flag -> -> 0 `i `uc ]
-"140
-[; ;receiver_main.c: 140:             message_received();
-[e ( _message_received ..  ]
-"141
-[; ;receiver_main.c: 141:         }
-}
+[e :U 320 ]
+[e $U 321  ]
 [e :U 322 ]
-"142
-[; ;receiver_main.c: 142:     }
-}
-[e :U 317 ]
-[e $U 318  ]
-[e :U 319 ]
-"143
-[; ;receiver_main.c: 143:     return (0);
+"133
+[; ;receiver_main.c: 133:     return (0);
 [e ) -> 0 `i ]
-[e $UE 316  ]
-"144
-[; ;receiver_main.c: 144: }
-[e :UE 316 ]
+[e $UE 319  ]
+"134
+[; ;receiver_main.c: 134: }
+[e :UE 319 ]
 }
 [v $root$_h_isr `(v ~T0 @X0 0 e ]
-"147
-[; ;receiver_main.c: 147: void __attribute__((picinterrupt(("__high_priority")))) h_isr( void )
+"137
+[; ;receiver_main.c: 137: void __attribute__((picinterrupt(("__high_priority")))) h_isr( void )
 [v _h_isr `(v ~T37 @X0 1 ef ]
-"148
-[; ;receiver_main.c: 148: {
+"138
+[; ;receiver_main.c: 138: {
 {
 [e :U _h_isr ]
 [f ]
-"149
-[; ;receiver_main.c: 149:     if ( SSPIE && SSPIF )
-[e $ ! && _SSPIE _SSPIF 324  ]
-"150
-[; ;receiver_main.c: 150:     {
+"139
+[; ;receiver_main.c: 139:     if ( SSPIE && SSPIF )
+[e $ ! && _SSPIE _SSPIF 327  ]
+"140
+[; ;receiver_main.c: 140:     {
 {
-"151
-[; ;receiver_main.c: 151:         if ( !message_start_flag )
-[e $ ! ! != -> _message_start_flag `i -> 0 `i 325  ]
-"152
-[; ;receiver_main.c: 152:         {
+"141
+[; ;receiver_main.c: 141:         if ( !message.beginning_flag )
+[e $ ! ! != -> . _message 0 `i -> 0 `i 328  ]
+"142
+[; ;receiver_main.c: 142:         {
 {
-"153
-[; ;receiver_main.c: 153:             if ( SSPBUF == 0b11111111 )
-[e $ ! == -> _SSPBUF `i -> 255 `i 326  ]
-"154
-[; ;receiver_main.c: 154:             {
+"143
+[; ;receiver_main.c: 143:             if ( SSPBUF == 0b11111111 )
+[e $ ! == -> _SSPBUF `i -> 255 `i 329  ]
+"144
+[; ;receiver_main.c: 144:             {
 {
-"155
-[; ;receiver_main.c: 155:                 message_start_flag = 1;
-[e = _message_start_flag -> -> 1 `i `uc ]
-"156
-[; ;receiver_main.c: 156:                 SSPIF = 0;
+"145
+[; ;receiver_main.c: 145:                 message.beginning_flag = 1;
+[e = . _message 0 -> -> 1 `i `uc ]
+"146
+[; ;receiver_main.c: 146:                 SSPIF = 0;
 [e = _SSPIF -> -> 0 `i `b ]
-"157
-[; ;receiver_main.c: 157:                 return;
-[e $UE 323  ]
-"158
-[; ;receiver_main.c: 158:             }
-}
-[e $U 327  ]
-"159
-[; ;receiver_main.c: 159:             else
-[e :U 326 ]
-"160
-[; ;receiver_main.c: 160:             {
-{
-"161
-[; ;receiver_main.c: 161:                 SSPBUF = 0b00000000;
-[e = _SSPBUF -> -> 0 `i `uc ]
-"162
-[; ;receiver_main.c: 162:                 return;
-[e $UE 323  ]
-"163
-[; ;receiver_main.c: 163:             }
-}
-[e :U 327 ]
-"164
-[; ;receiver_main.c: 164:         }
-}
-[e $U 328  ]
-"165
-[; ;receiver_main.c: 165:         else if ( !adc_lob_flag )
-[e :U 325 ]
-[e $ ! ! != -> _adc_lob_flag `i -> 0 `i 329  ]
-"166
-[; ;receiver_main.c: 166:         {
-{
-"167
-[; ;receiver_main.c: 167:             adc_res_lo = SSPBUF;
-[e = _adc_res_lo _SSPBUF ]
-"168
-[; ;receiver_main.c: 168:             adc_lob_flag = 1;
-[e = _adc_lob_flag -> -> 1 `i `uc ]
-"169
-[; ;receiver_main.c: 169:             SSPIF = 0;
-[e = _SSPIF -> -> 0 `i `b ]
-"170
-[; ;receiver_main.c: 170:             return;
-[e $UE 323  ]
-"171
-[; ;receiver_main.c: 171:         }
+"147
+[; ;receiver_main.c: 147:                 return;
+[e $UE 326  ]
+"148
+[; ;receiver_main.c: 148:             }
 }
 [e $U 330  ]
-"172
-[; ;receiver_main.c: 172:         else if ( !adc_hib_flag )
+"149
+[; ;receiver_main.c: 149:             else
 [e :U 329 ]
-[e $ ! ! != -> _adc_hib_flag `i -> 0 `i 331  ]
-"173
-[; ;receiver_main.c: 173:         {
+"150
+[; ;receiver_main.c: 150:             {
 {
-"174
-[; ;receiver_main.c: 174:             adc_res_hi = SSPBUF;
-[e = _adc_res_hi _SSPBUF ]
-"175
-[; ;receiver_main.c: 175:             adc_hib_flag = 1;
-[e = _adc_hib_flag -> -> 1 `i `uc ]
-"176
-[; ;receiver_main.c: 176:             adc_data_received = 1;
-[e = _adc_data_received -> -> 1 `i `uc ]
-"177
-[; ;receiver_main.c: 177:             SSPIF = 0;
-[e = _SSPIF -> -> 0 `i `b ]
-"178
-[; ;receiver_main.c: 178:             return;
-[e $UE 323  ]
-"179
-[; ;receiver_main.c: 179:         }
+"151
+[; ;receiver_main.c: 151:                 SSPBUF = 0b00000000;
+[e = _SSPBUF -> -> 0 `i `uc ]
+"152
+[; ;receiver_main.c: 152:                 return;
+[e $UE 326  ]
+"153
+[; ;receiver_main.c: 153:             }
 }
-[e $U 332  ]
-"180
-[; ;receiver_main.c: 180:         else if ( !drive_dirb_flag )
-[e :U 331 ]
-[e $ ! ! != -> _drive_dirb_flag `i -> 0 `i 333  ]
-"181
-[; ;receiver_main.c: 181:         {
-{
-"182
-[; ;receiver_main.c: 182:             drive_dir = SSPBUF;
-[e = _drive_dir _SSPBUF ]
-"184
-[; ;receiver_main.c: 184:             message_received_flag = 1;
-[e = _message_received_flag -> -> 1 `i `uc ]
-"185
-[; ;receiver_main.c: 185:             drive_dir_received = 1;
-[e = _drive_dir_received -> -> 1 `i `uc ]
-"186
-[; ;receiver_main.c: 186:             SSPIF = 0;
-[e = _SSPIF -> -> 0 `i `b ]
-"187
-[; ;receiver_main.c: 187:             return;
-[e $UE 323  ]
-"188
-[; ;receiver_main.c: 188:         }
-}
-[e :U 333 ]
-[e :U 332 ]
 [e :U 330 ]
+"154
+[; ;receiver_main.c: 154:         }
+}
+[e $U 331  ]
+"155
+[; ;receiver_main.c: 155:         else if ( !throttle.lob_flag )
 [e :U 328 ]
-"189
-[; ;receiver_main.c: 189:     }
+[e $ ! ! != -> . _throttle 4 `i -> 0 `i 332  ]
+"156
+[; ;receiver_main.c: 156:         {
+{
+"157
+[; ;receiver_main.c: 157:             throttle.res_lo = SSPBUF;
+[e = . _throttle 2 _SSPBUF ]
+"158
+[; ;receiver_main.c: 158:             throttle.lob_flag = 1;
+[e = . _throttle 4 -> -> 1 `i `uc ]
+"159
+[; ;receiver_main.c: 159:             SSPIF = 0;
+[e = _SSPIF -> -> 0 `i `b ]
+"160
+[; ;receiver_main.c: 160:             return;
+[e $UE 326  ]
+"161
+[; ;receiver_main.c: 161:         }
 }
-[e :U 324 ]
-"190
-[; ;receiver_main.c: 190:     return;
-[e $UE 323  ]
-"191
-[; ;receiver_main.c: 191: }
-[e :UE 323 ]
+[e $U 333  ]
+"162
+[; ;receiver_main.c: 162:         else if ( !throttle.hib_flag )
+[e :U 332 ]
+[e $ ! ! != -> . _throttle 5 `i -> 0 `i 334  ]
+"163
+[; ;receiver_main.c: 163:         {
+{
+"164
+[; ;receiver_main.c: 164:             throttle.res_hi = SSPBUF;
+[e = . _throttle 1 _SSPBUF ]
+"165
+[; ;receiver_main.c: 165:             throttle.hib_flag = 1;
+[e = . _throttle 5 -> -> 1 `i `uc ]
+"166
+[; ;receiver_main.c: 166:             throttle.full_result_flag = 1;
+[e = . _throttle 3 -> -> 1 `i `uc ]
+"167
+[; ;receiver_main.c: 167:             SSPIF = 0;
+[e = _SSPIF -> -> 0 `i `b ]
+"168
+[; ;receiver_main.c: 168:             return;
+[e $UE 326  ]
+"169
+[; ;receiver_main.c: 169:         }
 }
-"193
-[; ;receiver_main.c: 193: int set_throttle( int forward_flag, int adc_result )
+[e $U 335  ]
+"170
+[; ;receiver_main.c: 170:         else if ( !xl5_1.drive_dir_flag )
+[e :U 334 ]
+[e $ ! ! != -> . _xl5_1 1 `i -> 0 `i 336  ]
+"171
+[; ;receiver_main.c: 171:         {
+{
+"172
+[; ;receiver_main.c: 172:             xl5_1.drive_dir = SSPBUF;
+[e = . _xl5_1 0 _SSPBUF ]
+"173
+[; ;receiver_main.c: 173:             message.end_flag = 1;
+[e = . _message 2 -> -> 1 `i `uc ]
+"174
+[; ;receiver_main.c: 174:             xl5_1.drive_dir_flag = 1;
+[e = . _xl5_1 1 -> -> 1 `i `uc ]
+"175
+[; ;receiver_main.c: 175:             SSPIF = 0;
+[e = _SSPIF -> -> 0 `i `b ]
+"176
+[; ;receiver_main.c: 176:             return;
+[e $UE 326  ]
+"177
+[; ;receiver_main.c: 177:         }
+}
+[e :U 336 ]
+[e :U 335 ]
+[e :U 333 ]
+[e :U 331 ]
+"178
+[; ;receiver_main.c: 178:     }
+}
+[e :U 327 ]
+"179
+[; ;receiver_main.c: 179:     return;
+[e $UE 326  ]
+"180
+[; ;receiver_main.c: 180: }
+[e :UE 326 ]
+}
+"182
+[; ;receiver_main.c: 182: int set_throttle( int forward_flag, int adc_result )
 [v _set_throttle `(i ~T0 @X0 1 ef2`i`i ]
-"194
-[; ;receiver_main.c: 194: {
+"183
+[; ;receiver_main.c: 183: {
 {
 [e :U _set_throttle ]
-"193
-[; ;receiver_main.c: 193: int set_throttle( int forward_flag, int adc_result )
+"182
+[; ;receiver_main.c: 182: int set_throttle( int forward_flag, int adc_result )
 [v _forward_flag `i ~T0 @X0 1 r1 ]
 [v _adc_result `i ~T0 @X0 1 r2 ]
-"194
-[; ;receiver_main.c: 194: {
+"183
+[; ;receiver_main.c: 183: {
 [f ]
-"195
-[; ;receiver_main.c: 195:     int i;
+"184
+[; ;receiver_main.c: 184:     int i;
 [v _i `i ~T0 @X0 1 a ]
-"196
-[; ;receiver_main.c: 196:     int step_size = 0;
+"185
+[; ;receiver_main.c: 185:     int step_size = 0;
 [v _step_size `i ~T0 @X0 1 a ]
 [e = _step_size -> 0 `i ]
-"197
-[; ;receiver_main.c: 197:     uint8_t dir_div = 0;
+"186
+[; ;receiver_main.c: 186:     uint8_t dir_div = 0;
 [v _dir_div `uc ~T0 @X0 1 a ]
 [e = _dir_div -> -> 0 `i `uc ]
-"199
-[; ;receiver_main.c: 199:     uint8_t neutral = 95;
+"188
+[; ;receiver_main.c: 188:     uint8_t neutral = 95;
 [v _neutral `uc ~T0 @X0 1 a ]
 [e = _neutral -> -> 95 `i `uc ]
-"200
-[; ;receiver_main.c: 200:     int curr_step = 0;
+"189
+[; ;receiver_main.c: 189:     int curr_step = 0;
 [v _curr_step `i ~T0 @X0 1 a ]
 [e = _curr_step -> 0 `i ]
+"191
+[; ;receiver_main.c: 191:     if ( forward_flag )
+[e $ ! != _forward_flag -> 0 `i 338  ]
+"192
+[; ;receiver_main.c: 192:     {
+{
+"193
+[; ;receiver_main.c: 193:         dir_div = 33;
+[e = _dir_div -> -> 33 `i `uc ]
+"194
+[; ;receiver_main.c: 194:         step_size = ( 1 << 10 ) / dir_div;
+[e = _step_size / << -> 1 `i -> 10 `i -> _dir_div `i ]
+"195
+[; ;receiver_main.c: 195:     }
+}
+[e $U 339  ]
+"196
+[; ;receiver_main.c: 196:     else
+[e :U 338 ]
+"197
+[; ;receiver_main.c: 197:     {
+{
+"198
+[; ;receiver_main.c: 198:         dir_div = 31;
+[e = _dir_div -> -> 31 `i `uc ]
+"199
+[; ;receiver_main.c: 199:         step_size = ( 1 << 10 ) / dir_div;
+[e = _step_size / << -> 1 `i -> 10 `i -> _dir_div `i ]
+"200
+[; ;receiver_main.c: 200:     }
+}
+[e :U 339 ]
 "202
-[; ;receiver_main.c: 202:     if ( forward_flag )
-[e $ ! != _forward_flag -> 0 `i 335  ]
+[; ;receiver_main.c: 202:     for ( i = 1; i <= dir_div + 1; i++ )
+{
+[e = _i -> 1 `i ]
+[e $U 343  ]
+[e :U 340 ]
 "203
 [; ;receiver_main.c: 203:     {
 {
 "204
-[; ;receiver_main.c: 204:         dir_div = 33;
-[e = _dir_div -> -> 33 `i `uc ]
+[; ;receiver_main.c: 204:         curr_step = i * ( step_size );
+[e = _curr_step * _i _step_size ]
 "205
-[; ;receiver_main.c: 205:         step_size = ( 1 << 10 ) / dir_div;
-[e = _step_size / << -> 1 `i -> 10 `i -> _dir_div `i ]
+[; ;receiver_main.c: 205:         if ( curr_step >= adc_result )
+[e $ ! >= _curr_step _adc_result 344  ]
 "206
-[; ;receiver_main.c: 206:     }
-}
-[e $U 336  ]
+[; ;receiver_main.c: 206:         {
+{
 "207
-[; ;receiver_main.c: 207:     else
-[e :U 335 ]
+[; ;receiver_main.c: 207:             if ( forward_flag == 1 )
+[e $ ! == _forward_flag -> 1 `i 345  ]
 "208
-[; ;receiver_main.c: 208:     {
+[; ;receiver_main.c: 208:             {
 {
 "209
-[; ;receiver_main.c: 209:         dir_div = 31;
-[e = _dir_div -> -> 31 `i `uc ]
-"210
-[; ;receiver_main.c: 210:         step_size = ( 1 << 10 ) / dir_div;
-[e = _step_size / << -> 1 `i -> 10 `i -> _dir_div `i ]
-"211
-[; ;receiver_main.c: 211:     }
-}
-[e :U 336 ]
-"213
-[; ;receiver_main.c: 213:     for ( i = 1; i <= dir_div + 1; i++ )
-{
-[e = _i -> 1 `i ]
-[e $U 340  ]
-[e :U 337 ]
-"214
-[; ;receiver_main.c: 214:     {
-{
-"215
-[; ;receiver_main.c: 215:         curr_step = i * ( step_size );
-[e = _curr_step * _i _step_size ]
-"216
-[; ;receiver_main.c: 216:         if ( curr_step >= adc_result )
-[e $ ! >= _curr_step _adc_result 341  ]
-"217
-[; ;receiver_main.c: 217:         {
-{
-"218
-[; ;receiver_main.c: 218:             if ( forward_flag == 1 )
-[e $ ! == _forward_flag -> 1 `i 342  ]
-"219
-[; ;receiver_main.c: 219:             {
-{
-"220
-[; ;receiver_main.c: 220:                 return neutral + ( i - 1 );
+[; ;receiver_main.c: 209:                 return neutral + ( i - 1 );
 [e ) + -> _neutral `i - _i -> 1 `i ]
-[e $UE 334  ]
-"221
-[; ;receiver_main.c: 221:             }
+[e $UE 337  ]
+"210
+[; ;receiver_main.c: 210:             }
 }
-[e $U 343  ]
-"222
-[; ;receiver_main.c: 222:             else
-[e :U 342 ]
-"223
-[; ;receiver_main.c: 223:             {
+[e $U 346  ]
+"211
+[; ;receiver_main.c: 211:             else
+[e :U 345 ]
+"212
+[; ;receiver_main.c: 212:             {
 {
-"224
-[; ;receiver_main.c: 224:                 return neutral - ( i - 1);
+"213
+[; ;receiver_main.c: 213:                 return neutral - ( i - 1);
 [e ) - -> _neutral `i - _i -> 1 `i ]
-[e $UE 334  ]
-"225
-[; ;receiver_main.c: 225:             }
+[e $UE 337  ]
+"214
+[; ;receiver_main.c: 214:             }
 }
-[e :U 343 ]
-"226
-[; ;receiver_main.c: 226:         }
+[e :U 346 ]
+"215
+[; ;receiver_main.c: 215:         }
 }
-[e :U 341 ]
-"227
-[; ;receiver_main.c: 227:     }
+[e :U 344 ]
+"216
+[; ;receiver_main.c: 216:     }
 }
 [e ++ _i -> 1 `i ]
-[e :U 340 ]
-[e $ <= _i + -> _dir_div `i -> 1 `i 337  ]
-[e :U 338 ]
+[e :U 343 ]
+[e $ <= _i + -> _dir_div `i -> 1 `i 340  ]
+[e :U 341 ]
 }
-"228
-[; ;receiver_main.c: 228: }
-[e :UE 334 ]
+"217
+[; ;receiver_main.c: 217: }
+[e :UE 337 ]
 }
-"231
-[; ;receiver_main.c: 231: void message_received()
+"220
+[; ;receiver_main.c: 220: void message_received()
 [v _message_received `(v ~T0 @X0 1 ef ]
-"232
-[; ;receiver_main.c: 232: {
+"221
+[; ;receiver_main.c: 221: {
 {
 [e :U _message_received ]
 [f ]
-"233
-[; ;receiver_main.c: 233:     adc_lob_flag = 0;
-[e = _adc_lob_flag -> -> 0 `i `uc ]
-"234
-[; ;receiver_main.c: 234:     adc_hib_flag = 0;
-[e = _adc_hib_flag -> -> 0 `i `uc ]
-"235
-[; ;receiver_main.c: 235:     drive_dirb_flag = 0;
-[e = _drive_dirb_flag -> -> 0 `i `uc ]
-"236
-[; ;receiver_main.c: 236:     message_start_flag = 0;
-[e = _message_start_flag -> -> 0 `i `uc ]
-"237
-[; ;receiver_main.c: 237: }
-[e :UE 344 ]
+"222
+[; ;receiver_main.c: 222:     throttle.lob_flag = 0;
+[e = . _throttle 4 -> -> 0 `i `uc ]
+"223
+[; ;receiver_main.c: 223:     throttle.hib_flag = 0;
+[e = . _throttle 5 -> -> 0 `i `uc ]
+"224
+[; ;receiver_main.c: 224:     xl5_1.drive_dir_flag = 0;
+[e = . _xl5_1 1 -> -> 0 `i `uc ]
+"225
+[; ;receiver_main.c: 225:     message.beginning_flag = 0;
+[e = . _message 0 -> -> 0 `i `uc ]
+"226
+[; ;receiver_main.c: 226: }
+[e :UE 347 ]
 }

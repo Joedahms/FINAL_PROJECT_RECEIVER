@@ -122,15 +122,15 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: link
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${DISTDIR}/FINAL_PROJECT.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk  ../PIC18_pc_pwm.X/dist/default/debug/PIC18_pc_pwm.X.a ../PIC18_xl5.X/dist/default/debug/PIC18_xl5.X.a ../PIC18_spi.X/dist/default/debug/PIC18_spi.X.a  
+${DISTDIR}/FINAL_PROJECT.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk  ../PIC18_pc_pwm.X/dist/default/debug/PIC18_pc_pwm.X.a ../PIC18_xl5.X/dist/default/debug/PIC18_xl5.X.a ../PIC18_spi.X/dist/default/debug/PIC18_spi.X.a ../PIC18_adc.X/dist/default/debug/PIC18_adc.X.a  
 	@${MKDIR} ${DISTDIR} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -Wl,-Map=${DISTDIR}/FINAL_PROJECT.X.${IMAGE_TYPE}.map  -D__DEBUG=1  -mdebugger=none  -DXPRJ_default=$(CND_CONF)  -Wl,--defsym=__MPLAB_BUILD=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -mrom=default,-1d40-1fff -mram=default,-2ef-2ff,-f9c-f9c,-fd4-fd4,-fdb-fdf,-fe3-fe7,-feb-fef,-ffc-ffc,-ffd-fff  $(COMPARISON_BUILD) -Wl,--memorysummary,${DISTDIR}/memoryfile.xml -o ${DISTDIR}/FINAL_PROJECT.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}    ../PIC18_pc_pwm.X/dist/default/debug/PIC18_pc_pwm.X.a ../PIC18_xl5.X/dist/default/debug/PIC18_xl5.X.a ../PIC18_spi.X/dist/default/debug/PIC18_spi.X.a 
+	${MP_CC} $(MP_EXTRA_LD_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -Wl,-Map=${DISTDIR}/FINAL_PROJECT.X.${IMAGE_TYPE}.map  -D__DEBUG=1  -mdebugger=none  -DXPRJ_default=$(CND_CONF)  -Wl,--defsym=__MPLAB_BUILD=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -mrom=default,-1dc0-1fff -mram=default,-2f4-2ff,-f9c-f9c,-fd4-fd4,-fdb-fdf,-fe3-fe7,-feb-fef,-ffd-fff  $(COMPARISON_BUILD) -Wl,--memorysummary,${DISTDIR}/memoryfile.xml -o ${DISTDIR}/FINAL_PROJECT.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}    ../PIC18_pc_pwm.X/dist/default/debug/PIC18_pc_pwm.X.a ../PIC18_xl5.X/dist/default/debug/PIC18_xl5.X.a ../PIC18_spi.X/dist/default/debug/PIC18_spi.X.a ../PIC18_adc.X/dist/default/debug/PIC18_adc.X.a 
 	@${RM} ${DISTDIR}/FINAL_PROJECT.X.${IMAGE_TYPE}.hex 
 	
 else
-${DISTDIR}/FINAL_PROJECT.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk  ../PIC18_pc_pwm.X/dist/default/production/PIC18_pc_pwm.X.a ../PIC18_xl5.X/dist/default/production/PIC18_xl5.X.a ../PIC18_spi.X/dist/default/production/PIC18_spi.X.a 
+${DISTDIR}/FINAL_PROJECT.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk  ../PIC18_pc_pwm.X/dist/default/production/PIC18_pc_pwm.X.a ../PIC18_xl5.X/dist/default/production/PIC18_xl5.X.a ../PIC18_spi.X/dist/default/production/PIC18_spi.X.a ../PIC18_adc.X/dist/default/production/PIC18_adc.X.a 
 	@${MKDIR} ${DISTDIR} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -Wl,-Map=${DISTDIR}/FINAL_PROJECT.X.${IMAGE_TYPE}.map  -DXPRJ_default=$(CND_CONF)  -Wl,--defsym=__MPLAB_BUILD=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     $(COMPARISON_BUILD) -Wl,--memorysummary,${DISTDIR}/memoryfile.xml -o ${DISTDIR}/FINAL_PROJECT.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}    ../PIC18_pc_pwm.X/dist/default/production/PIC18_pc_pwm.X.a ../PIC18_xl5.X/dist/default/production/PIC18_xl5.X.a ../PIC18_spi.X/dist/default/production/PIC18_spi.X.a 
+	${MP_CC} $(MP_EXTRA_LD_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -Wl,-Map=${DISTDIR}/FINAL_PROJECT.X.${IMAGE_TYPE}.map  -DXPRJ_default=$(CND_CONF)  -Wl,--defsym=__MPLAB_BUILD=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     $(COMPARISON_BUILD) -Wl,--memorysummary,${DISTDIR}/memoryfile.xml -o ${DISTDIR}/FINAL_PROJECT.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}    ../PIC18_pc_pwm.X/dist/default/production/PIC18_pc_pwm.X.a ../PIC18_xl5.X/dist/default/production/PIC18_xl5.X.a ../PIC18_spi.X/dist/default/production/PIC18_spi.X.a ../PIC18_adc.X/dist/default/production/PIC18_adc.X.a 
 	
 endif
 
@@ -140,6 +140,7 @@ endif
 	cd ../PIC18_pc_pwm.X && ${MAKE}  -f Makefile CONF=default
 	cd ../PIC18_xl5.X && ${MAKE}  -f Makefile CONF=default
 	cd ../PIC18_spi.X && ${MAKE}  -f Makefile CONF=default
+	cd ../PIC18_adc.X && ${MAKE}  -f Makefile CONF=default
 
 
 # Subprojects
@@ -147,6 +148,7 @@ endif
 	cd ../PIC18_pc_pwm.X && rm -rf "build/default" "dist/default"
 	cd ../PIC18_xl5.X && rm -rf "build/default" "dist/default"
 	cd ../PIC18_spi.X && rm -rf "build/default" "dist/default"
+	cd ../PIC18_adc.X && rm -rf "build/default" "dist/default"
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}

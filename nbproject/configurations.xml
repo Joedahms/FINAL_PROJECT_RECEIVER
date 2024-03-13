@@ -7,6 +7,7 @@
       <itemPath>../PIC18_xl5.X/xl5.h</itemPath>
       <itemPath>../PIC18_pc_pwm.X/pc_pwm.h</itemPath>
       <itemPath>../PIC18_spi.X/spi.h</itemPath>
+      <itemPath>../PIC18_adc.X/adc.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -31,6 +32,7 @@
     <Elem>../PIC18_xl5.X</Elem>
     <Elem>../PIC18_pc_pwm.X</Elem>
     <Elem>../PIC18_spi.X</Elem>
+    <Elem>../PIC18_adc.X</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -102,6 +104,23 @@
                             FL="dist/default/production/PIC18_spi.X.a"
                             PD="dist/default/production/PIC18_spi.X.a"
                             DD="dist/default/debug/PIC18_spi.X.a">
+              </makeArtifact>
+            </linkerLibProjectItem>
+            <linkerLibProjectItem>
+              <makeArtifact PL="../PIC18_adc.X"
+                            CT="3"
+                            CN="default"
+                            AC="true"
+                            BL="true"
+                            WD="../PIC18_adc.X"
+                            BC="${MAKE}  -f Makefile CONF=default"
+                            DBC="${MAKE}  -f Makefile CONF=default TYPE_IMAGE=DEBUG_RUN"
+                            CC="rm -rf &quot;build/default&quot; &quot;dist/default&quot;"
+                            OP="dist/default/production/PIC18_adc.X.a"
+                            DOP="dist/default/debug/PIC18_adc.X.a"
+                            FL="dist/default/production/PIC18_adc.X.a"
+                            PD="dist/default/production/PIC18_adc.X.a"
+                            DD="dist/default/debug/PIC18_adc.X.a">
               </makeArtifact>
             </linkerLibProjectItem>
           </linkerLibItems>
@@ -311,7 +330,7 @@
         <property key="debugoptions.debug-startup" value="Use system settings"/>
         <property key="debugoptions.reset-behaviour" value="Use system settings"/>
         <property key="debugoptions.simultaneous.debug" value="false"/>
-        <property key="debugoptions.useswbreakpoints" value="true"/>
+        <property key="debugoptions.useswbreakpoints" value="false"/>
         <property key="event.recorder.enabled" value="false"/>
         <property key="event.recorder.scvd.files" value=""/>
         <property key="freeze.timers" value="false"/>

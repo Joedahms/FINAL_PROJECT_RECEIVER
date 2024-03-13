@@ -33,13 +33,13 @@
 [v ___omul __omul `(uo  1 e 8 0 ]
 "5 pc_pwm.c
 [v _PWM_init PWM_init `(v  1 e 1 0 ]
-"103 /home/joe/MPLABXProjects/FINAL_PROJECT.X/receiver_main.c
+"94 /home/joe/MPLABXProjects/FINAL_PROJECT.X/receiver_main.c
 [v _main main `(i  1 e 2 0 ]
-"147
+"137
 [v _h_isr h_isr `IIH(v  1 e 1 0 ]
-"193
+"182
 [v _set_throttle set_throttle `(i  1 e 2 0 ]
-"231
+"220
 [v _message_received message_received `(v  1 e 1 0 ]
 "25 spi.c
 [v _spi_slave_init spi_slave_init `(v  1 e 1 0 ]
@@ -51,7 +51,7 @@
 [v _PTPERH PTPERH `VEuc  1 e 1 @3962 ]
 "906
 [v _PTPERL PTPERL `VEuc  1 e 1 @3963 ]
-[s S104 . 1 `uc 1 LATB0 1 0 :1:0 
+[s S117 . 1 `uc 1 LATB0 1 0 :1:0 
 `uc 1 LATB1 1 0 :1:1 
 `uc 1 LATB2 1 0 :1:2 
 `uc 1 LATB3 1 0 :1:3 
@@ -61,7 +61,7 @@
 `uc 1 LATB7 1 0 :1:7 
 ]
 "1891
-[s S113 . 1 `uc 1 LB0 1 0 :1:0 
+[s S126 . 1 `uc 1 LB0 1 0 :1:0 
 `uc 1 LB1 1 0 :1:1 
 `uc 1 LB2 1 0 :1:2 
 `uc 1 LB3 1 0 :1:3 
@@ -70,8 +70,8 @@
 `uc 1 LB6 1 0 :1:6 
 `uc 1 LB7 1 0 :1:7 
 ]
-[u S122 . 1 `S104 1 . 1 0 `S113 1 . 1 0 ]
-[v _LATBbits LATBbits `VES122  1 e 1 @3978 ]
+[u S135 . 1 `S117 1 . 1 0 `S126 1 . 1 0 ]
+[v _LATBbits LATBbits `VES135  1 e 1 @3978 ]
 "6112
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @4041 ]
 "7907
@@ -128,57 +128,42 @@
 [v _TRISC5 TRISC5 `VEb  1 e 0 @31909 ]
 "9401
 [v _TRISC7 TRISC7 `VEb  1 e 0 @31911 ]
-"87 /home/joe/MPLABXProjects/FINAL_PROJECT.X/receiver_main.c
-[v _adc_res_hi adc_res_hi `uc  1 e 1 0 ]
-"88
-[v _adc_res_lo adc_res_lo `uc  1 e 1 0 ]
+[s S24 adc_data 7 `i 1 full_result 2 0 `uc 1 res_hi 1 2 `uc 1 res_lo 1 3 `uc 1 full_result_flag 1 4 `uc 1 lob_flag 1 5 `uc 1 hib_flag 1 6 ]
+"88 /home/joe/MPLABXProjects/FINAL_PROJECT.X/receiver_main.c
+[v _throttle throttle `S24  1 e 7 0 ]
+[s S31 xl5_data 2 `uc 1 drive_dir 1 0 `uc 1 drive_dir_flag 1 1 ]
 "89
-[v _drive_dir drive_dir `uc  1 e 1 0 ]
+[v _xl5_1 xl5_1 `S31  1 e 2 0 ]
+[s S34 spi_transmission 3 `uc 1 beginning_flag 1 0 `uc 1 sending_flag 1 1 `uc 1 end_flag 1 2 ]
+"90
+[v _message message `S34  1 e 3 0 ]
 "94
-[v _adc_lob_flag adc_lob_flag `uc  1 e 1 0 ]
-"95
-[v _adc_hib_flag adc_hib_flag `uc  1 e 1 0 ]
-"96
-[v _drive_dirb_flag drive_dirb_flag `uc  1 e 1 0 ]
-"97
-[v _message_start_flag message_start_flag `uc  1 e 1 0 ]
-"98
-[v _message_received_flag message_received_flag `uc  1 e 1 0 ]
-"100
-[v _adc_data_received adc_data_received `uc  1 e 1 0 ]
-"101
-[v _drive_dir_received drive_dir_received `uc  1 e 1 0 ]
-"103
 [v _main main `(i  1 e 2 0 ]
 {
-"122
-[v main@adc_result adc_result `i  1 a 2 30 ]
-"120
-[v main@forward_flag forward_flag `uc  1 a 1 32 ]
-"144
+"134
 } 0
 "25 spi.c
 [v _spi_slave_init spi_slave_init `(v  1 e 1 0 ]
 {
 "42
 } 0
-"193 /home/joe/MPLABXProjects/FINAL_PROJECT.X/receiver_main.c
+"182 /home/joe/MPLABXProjects/FINAL_PROJECT.X/receiver_main.c
 [v _set_throttle set_throttle `(i  1 e 2 0 ]
 {
-"195
+"184
 [v set_throttle@i i `i  1 a 2 21 ]
-"196
+"185
 [v set_throttle@step_size step_size `i  1 a 2 17 ]
-"200
+"189
 [v set_throttle@curr_step curr_step `i  1 a 2 15 ]
-"197
+"186
 [v set_throttle@dir_div dir_div `uc  1 a 1 20 ]
-"199
+"188
 [v set_throttle@neutral neutral `uc  1 a 1 19 ]
-"193
+"182
 [v set_throttle@forward_flag forward_flag `i  1 p 2 8 ]
 [v set_throttle@adc_result adc_result `i  1 p 2 10 ]
-"228
+"217
 } 0
 "15 /opt/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -203,10 +188,10 @@
 [v ___awdiv@divisor divisor `i  1 p 2 2 ]
 "41
 } 0
-"231 /home/joe/MPLABXProjects/FINAL_PROJECT.X/receiver_main.c
+"220 /home/joe/MPLABXProjects/FINAL_PROJECT.X/receiver_main.c
 [v _message_received message_received `(v  1 e 1 0 ]
 {
-"237
+"226
 } 0
 "7 xl5.c
 [v _init_XL5 init_XL5 `(v  1 e 1 0 ]
@@ -218,8 +203,8 @@
 {
 "25
 } 0
-"147 /home/joe/MPLABXProjects/FINAL_PROJECT.X/receiver_main.c
+"137 /home/joe/MPLABXProjects/FINAL_PROJECT.X/receiver_main.c
 [v _h_isr h_isr `IIH(v  1 e 1 0 ]
 {
-"191
+"180
 } 0

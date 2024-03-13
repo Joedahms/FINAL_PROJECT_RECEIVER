@@ -5,6 +5,8 @@
  * Created on February 26, 2024, 5:12 PM
  */
 
+// MESSAGE_START is defined in spi.h
+
 // PIC18F4331 Configuration Bit Settings
 
 // 'C' source line config statements
@@ -74,33 +76,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../PIC18_xl5.X/xl5.h"       // XL5 library
-#include "../PIC18_pc_pwm.X/pc_pwm.h" // Power control pwm library
-#include "../PIC18_spi.X/spi.h"
+#include "../PIC18_xl5.X/xl5.h"         // XL5 library
+#include "../PIC18_pc_pwm.X/pc_pwm.h"   // Power control pwm library
+#include "../PIC18_spi.X/spi.h"         // Serial peripheral interface library
+#include "../PIC18_adc.X/adc.h"         // Analog to digital converter library
 
 void __interrupt( __high_priority ) h_isr( void );
 int set_throttle(int, int);
-void message_received();  
+void message_received(); 
 
-int byte_received = 0;          // byte has been received from spi module
-
-uint8_t adc_res_hi = 0;         // High byte of AD conversion
-uint8_t adc_res_lo = 0;         // Low byte of AD conversion
-uint8_t drive_dir = 0;          // Forward or reverse
-
-uint8_t message_start = 0b11111111;
-uint8_t start_test = 0;
-
-uint8_t adc_lob_flag = 0;       // Whether adc low byte has been received (SPI)
-uint8_t adc_hib_flag = 0;       // Whether adc high byte has been received (SPI)
-uint8_t drive_dirb_flag = 0;    // Whether drive direction byte has been received (SPI)
-uint8_t message_start_flag = 0; // Whether message start has been received
-uint8_t message_received_flag = 0;  // Whether message has been received yet
-
-uint8_t adc_data_received = 0;  // If both bytes of ADC data has been received
-uint8_t drive_dir_received = 0; // If drive direction byte has been received
+struct adc_data throttle;       // Struct in PIC18_adc library  
+struct xl5_data xl5_1;           // Struct in PIC18_xl5 library
+struct spi_transmission message;
 
 int main( int argc, char** argv ) {
+    message.beginning_flag = 0;
+    message.end_flag = 0;
     
     // set system clock to 4MHz
     IRCF0 = 0;                 
@@ -117,26 +108,23 @@ int main( int argc, char** argv ) {
     PWM_init();         // Initialize PWM module
     spi_slave_init();   // Initialize SPI module as slave device
 
-    uint8_t forward_flag = 0;
-    
-    int adc_result = 0; // full ADC result (low byte + high byte)
+    xl5_1.drive_dir = 1;    // needed bc throttle comes before drive direction, could change this
     // main loop
     while( 1 ) 
     {
-        if ( adc_data_received )    // If both bytes of ADC data have been received
+        if ( throttle.full_result_flag )    // If both bytes of ADC data have been received
         {
-            adc_result = ( adc_res_hi << 8 ) + adc_res_lo;      // Calculate full adc result
-            PDC0L = set_throttle(forward_flag, adc_result);     // Set PDCOL (pwm duty cycle)
-            adc_data_received = 0;                              // ADC has been received. Reset for next transmission
+            throttle.full_result_flag = 0;
+            throttle.full_result = ( throttle.res_hi << 8 ) + throttle.res_lo;      // Calculate full adc result
+            PDC0L = set_throttle( xl5_1.drive_dir, throttle.full_result );             // Set PDCOL (pwm duty cycle)
         }
-        if ( drive_dir_received )       // If drive direction byte has been received
+        if ( xl5_1.drive_dir_flag )             // If drive direction byte has been received       
         {
-            forward_flag = drive_dir;   // Set forward flag (passed to set_throttle)
-            drive_dir_received = 0;     // Drive direction has been received. Reset for next transmission
+            xl5_1.drive_dir_flag = 0;           // Reset for next transmission    
         }
-        if ( message_received_flag )
+        if ( message.end_flag )
         {
-            message_received_flag = 0;
+            message.end_flag = 0;
             message_received();
         }
     }   
@@ -148,11 +136,11 @@ void __interrupt( __high_priority ) h_isr( void )
 {
     if ( SSPIE && SSPIF )               // If SPI buffer is full (data has been received)
     {
-        if ( !message_start_flag )      // Expecting start message
+        if ( !message.beginning_flag )      // Expecting start message
         {
-            if ( SSPBUF == 0b11111111 ) // If start message was received
+            if ( SSPBUF == MESSAGE_START ) // If start message was received
             {
-                message_start_flag = 1; // Start message was received
+                message.beginning_flag = 1; // Start message was received
                 SSPIF = 0;              // Reception (of a byte) complete
                 return;
             }
@@ -162,27 +150,26 @@ void __interrupt( __high_priority ) h_isr( void )
                 return;
             }
         }
-        else if ( !adc_lob_flag )        // If low byte hasn't been received yet
+        else if ( !throttle.lob_flag )        // If low byte hasn't been received yet
         {
-            adc_res_lo = SSPBUF;        // Then data sent was low byte
-            adc_lob_flag = 1;           // Low byte has been received  
+            throttle.res_lo = SSPBUF;        // Then data sent was low byte
+            throttle.lob_flag = 1;           // Low byte has been received  
             SSPIF = 0;                  // Reception (of a byte) complete
             return;
         }
-        else if ( !adc_hib_flag )       // If high byte hasn't been received yet
+        else if ( !throttle.hib_flag )       // If high byte hasn't been received yet
         {
-            adc_res_hi = SSPBUF;        // Then data sent was high byte
-            adc_hib_flag = 1;           // Reset flag for next receive
-            adc_data_received = 1;      // ADC data has been received
+            throttle.res_hi = SSPBUF;        // Then data sent was high byte
+            throttle.hib_flag = 1;           // Reset flag for next receive
+            throttle.full_result_flag = 1;      // ADC data has been received
             SSPIF = 0;                  // Reception (of a byte) complete
             return;
         }
-        else if ( !drive_dirb_flag )    // If drive direction hasn't been received yet
+        else if ( !xl5_1.drive_dir_flag )    // If drive direction hasn't been received yet
         {
-            drive_dir = SSPBUF;         // Then data sent was drive direction
-            //message_received();       // Entire message has been received, reset byte flags
-            message_received_flag = 1;  // Entire message has been received, reset byte flags
-            drive_dir_received = 1;     // Drive direction has been received
+            xl5_1.drive_dir = SSPBUF;         // Then data sent was drive direction
+            message.end_flag = 1;  // Entire message has been received, reset byte flags    
+            xl5_1.drive_dir_flag = 1;   // Drive direction has been received
             SSPIF = 0;                  // Reception (of a byte) complete
             return;
         }
@@ -227,11 +214,11 @@ int set_throttle( int forward_flag, int adc_result )
     }   
 }
 
-// Reset byte flags (called in interrupt which may not be the best idea)
+// Reset received flags for next transmission
 void message_received()
 {
-    adc_lob_flag = 0;
-    adc_hib_flag = 0;
-    drive_dirb_flag = 0;
-    message_start_flag = 0;
+    throttle.lob_flag = 0;
+    throttle.hib_flag = 0;
+    xl5_1.drive_dir_flag = 0;
+    message.beginning_flag = 0;
 }

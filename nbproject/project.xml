@@ -8,6 +8,7 @@
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects>
+                <make-dep-project>../PIC18_adc.X</make-dep-project>
                 <make-dep-project>../PIC18_pc_pwm.X</make-dep-project>
                 <make-dep-project>../PIC18_spi.X</make-dep-project>
                 <make-dep-project>../PIC18_xl5.X</make-dep-project>
@@ -20,6 +21,7 @@
                 <sourceRootElem>../PIC18_xl5.X</sourceRootElem>
                 <sourceRootElem>../PIC18_pc_pwm.X</sourceRootElem>
                 <sourceRootElem>../PIC18_spi.X</sourceRootElem>
+                <sourceRootElem>../PIC18_adc.X</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

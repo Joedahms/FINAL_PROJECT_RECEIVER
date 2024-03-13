@@ -7,7 +7,7 @@
 # 1 "/opt/microchip/xc8/v2.45/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "receiver_main.c" 2
-# 13 "receiver_main.c"
+# 15 "receiver_main.c"
 #pragma config OSC = IRC
 #pragma config FCMEN = ON
 #pragma config IESO = ON
@@ -5301,7 +5301,7 @@ __attribute__((__unsupported__("The READTIMER" "3" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "/opt/microchip/xc8/v2.45/pic/include/xc.h" 2 3
-# 74 "receiver_main.c" 2
+# 76 "receiver_main.c" 2
 # 1 "/opt/microchip/xc8/v2.45/pic/include/c99/stdio.h" 1 3
 # 24 "/opt/microchip/xc8/v2.45/pic/include/c99/stdio.h" 3
 # 1 "/opt/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 1 3
@@ -5454,47 +5454,64 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 75 "receiver_main.c" 2
+# 77 "receiver_main.c" 2
 
 
 # 1 "./../PIC18_xl5.X/xl5.h" 1
 # 11 "./../PIC18_xl5.X/xl5.h"
+struct xl5_data
+{
+    uint8_t drive_dir;
+    uint8_t drive_dir_flag;
+};
+
 void init_XL5();
 void throttle_test();
-# 78 "receiver_main.c" 2
+# 80 "receiver_main.c" 2
 # 1 "./../PIC18_pc_pwm.X/pc_pwm.h" 1
 # 11 "./../PIC18_pc_pwm.X/pc_pwm.h"
 void PWM_init();
-# 79 "receiver_main.c" 2
+# 81 "receiver_main.c" 2
 # 1 "./../PIC18_spi.X/spi.h" 1
-# 11 "./../PIC18_spi.X/spi.h"
+# 13 "./../PIC18_spi.X/spi.h"
 void spi_master_init();
 void spi_slave_init();
-# 80 "receiver_main.c" 2
+
+struct spi_transmission
+{
+    uint8_t beginning_flag;
+    uint8_t sending_flag;
+    uint8_t end_flag;
+};
+# 82 "receiver_main.c" 2
+# 1 "./../PIC18_adc.X/adc.h" 1
+# 11 "./../PIC18_adc.X/adc.h"
+void adc_init();
+
+struct adc_data
+{
+    int full_result;
+    uint8_t res_hi;
+    uint8_t res_lo;
+    uint8_t full_result_flag;
+    uint8_t lob_flag;
+    uint8_t hib_flag;
+};
+# 83 "receiver_main.c" 2
 
 void __attribute__((picinterrupt(("__high_priority")))) h_isr( void );
 int set_throttle(int, int);
 void message_received();
 
-int byte_received = 0;
+struct adc_data throttle;
+struct xl5_data xl5_1;
+struct spi_transmission message;
 
-uint8_t adc_res_hi = 0;
-uint8_t adc_res_lo = 0;
-uint8_t drive_dir = 0;
 
-uint8_t message_start = 0b11111111;
-uint8_t start_test = 0;
-
-uint8_t adc_lob_flag = 0;
-uint8_t adc_hib_flag = 0;
-uint8_t drive_dirb_flag = 0;
-uint8_t message_start_flag = 0;
-uint8_t message_received_flag = 0;
-
-uint8_t adc_data_received = 0;
-uint8_t drive_dir_received = 0;
 
 int main( int argc, char** argv ) {
+    message.beginning_flag = 0;
+    message.end_flag = 0;
 
 
     IRCF0 = 0;
@@ -5511,26 +5528,23 @@ int main( int argc, char** argv ) {
     PWM_init();
     spi_slave_init();
 
-    uint8_t forward_flag = 0;
-
-    int adc_result = 0;
+    xl5_1.drive_dir = 1;
 
     while( 1 )
     {
-        if ( adc_data_received )
+        if ( throttle.full_result_flag )
         {
-            adc_result = ( adc_res_hi << 8 ) + adc_res_lo;
-            PDC0L = set_throttle(forward_flag, adc_result);
-            adc_data_received = 0;
+            throttle.full_result_flag = 0;
+            throttle.full_result = ( throttle.res_hi << 8 ) + throttle.res_lo;
+            PDC0L = set_throttle( xl5_1.drive_dir, throttle.full_result );
         }
-        if ( drive_dir_received )
+        if ( xl5_1.drive_dir_flag )
         {
-            forward_flag = drive_dir;
-            drive_dir_received = 0;
+            xl5_1.drive_dir_flag = 0;
         }
-        if ( message_received_flag )
+        if ( message.end_flag )
         {
-            message_received_flag = 0;
+            message.end_flag = 0;
             message_received();
         }
     }
@@ -5542,11 +5556,11 @@ void __attribute__((picinterrupt(("__high_priority")))) h_isr( void )
 {
     if ( SSPIE && SSPIF )
     {
-        if ( !message_start_flag )
+        if ( !message.beginning_flag )
         {
             if ( SSPBUF == 0b11111111 )
             {
-                message_start_flag = 1;
+                message.beginning_flag = 1;
                 SSPIF = 0;
                 return;
             }
@@ -5556,27 +5570,26 @@ void __attribute__((picinterrupt(("__high_priority")))) h_isr( void )
                 return;
             }
         }
-        else if ( !adc_lob_flag )
+        else if ( !throttle.lob_flag )
         {
-            adc_res_lo = SSPBUF;
-            adc_lob_flag = 1;
+            throttle.res_lo = SSPBUF;
+            throttle.lob_flag = 1;
             SSPIF = 0;
             return;
         }
-        else if ( !adc_hib_flag )
+        else if ( !throttle.hib_flag )
         {
-            adc_res_hi = SSPBUF;
-            adc_hib_flag = 1;
-            adc_data_received = 1;
+            throttle.res_hi = SSPBUF;
+            throttle.hib_flag = 1;
+            throttle.full_result_flag = 1;
             SSPIF = 0;
             return;
         }
-        else if ( !drive_dirb_flag )
+        else if ( !xl5_1.drive_dir_flag )
         {
-            drive_dir = SSPBUF;
-
-            message_received_flag = 1;
-            drive_dir_received = 1;
+            xl5_1.drive_dir = SSPBUF;
+            message.end_flag = 1;
+            xl5_1.drive_dir_flag = 1;
             SSPIF = 0;
             return;
         }
@@ -5624,8 +5637,8 @@ int set_throttle( int forward_flag, int adc_result )
 
 void message_received()
 {
-    adc_lob_flag = 0;
-    adc_hib_flag = 0;
-    drive_dirb_flag = 0;
-    message_start_flag = 0;
+    throttle.lob_flag = 0;
+    throttle.hib_flag = 0;
+    xl5_1.drive_dir_flag = 0;
+    message.beginning_flag = 0;
 }
